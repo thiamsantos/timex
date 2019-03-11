@@ -24,4 +24,12 @@ defmodule Timex.Calendar.JulianTest do
   test "Test Julian Date evening hour" do
     assert Julian.julian_date(2018, 10, 1, 18, 0, 0) == 2458393.25
   end
+
+  test "accept Erlang date" do
+    assert Julian.julian_date({2018, 10, 1}) == 2458393
+  end
+
+  test "accept Erlang datetime" do
+    assert Julian.julian_date({{2018, 10, 1}, {0, 0, 1}}) == 2458392.500011574
+  end
 end
